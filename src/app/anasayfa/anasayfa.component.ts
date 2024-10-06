@@ -24,4 +24,10 @@ constructor(private crewService: CrewService) {
   this.crewList = this.crewService.getCrewList();
 }
 
+DeleteCrew(id: number): void {
+  console.log(id);
+  this.crewService.deleteCrew(id);  
+  this.crewList = [...this.crewService.getCrewList()]; 
+}
+
 }

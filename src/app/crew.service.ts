@@ -40,7 +40,7 @@ export class CrewService {
       ]
     },
     {
-        id:1,
+        id:2,
         firstName: 'Batuhan',
         lastName: 'Karahan',
         nationality: 'USA',
@@ -54,7 +54,7 @@ export class CrewService {
         ]
       },
       {
-        id:1,
+        id:3,
         firstName: 'Tibet',
         lastName: 'Erol',
         nationality: 'USA',
@@ -68,7 +68,7 @@ export class CrewService {
         ]
       },
       {
-        id:1,
+        id:4,
         firstName: 'Enes',
         lastName: 'Eviz',
         nationality: 'USA',
@@ -82,9 +82,9 @@ export class CrewService {
         ]
       },
       {
-        id:1,
-        firstName: 'Defne',
-        lastName: 'Şengönül',
+        id:5,
+        firstName: 'Mert',
+        lastName: 'Tok',
         nationality: 'USA',
         title: 'Cooker',
         daysOnBoard: 120,
@@ -100,4 +100,23 @@ export class CrewService {
   getCrewList() {
     return this.crewList;
   }
+
+  addCrew(newCrew: Crew) {
+    this.crewList.push(newCrew);
+  }
+
+  getCrewById(id: number): Crew | undefined {
+    return this.crewList.find(crew => crew.id === id);
+  }
+
+  updateCrew(updatedCrew: Crew) {
+    const index = this.crewList.findIndex(crew => crew.id === updatedCrew.id);
+    this.crewList[index] = updatedCrew;
+  }
+
+  deleteCrew(id: number) {
+    const index = this.crewList.findIndex(crew => crew.id === id);
+    this.crewList.splice(index, 1); 
+  }
+
 }
