@@ -1,0 +1,14 @@
+    <h4 style="margin-left: 10px;" mat-dialog-title>Certificates</h4>
+    <mat-dialog-content style="overflow-y: auto;">
+      <mat-list *ngIf="data.certificates.length; else noCertificates">
+        <mat-list-item style="height: 150px;" *ngFor="let certificate of data.certificates">
+          <p>{{ 'Type' | translate }}: {{ certificate.type }}</p>
+          <p>{{ 'Issue Date' | translate }}: {{ certificate.issueDate | date }}</p>
+          <p>{{ 'Expiry Date' | translate }}: {{ certificate.expiryDate | date }}</p>
+        </mat-list-item>
+      </mat-list>
+      <ng-template #noCertificates>
+        <p>{{ 'No Certificates Available' | translate }}</p>
+      </ng-template>
+    </mat-dialog-content>
+    

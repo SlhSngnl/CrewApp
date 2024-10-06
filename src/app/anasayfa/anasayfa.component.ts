@@ -5,6 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CrewService, Crew } from '../crew.service';
 import { CrewPopupComponent } from '../crew-popup/crew-popup.component';
 import { MatDialog } from '@angular/material/dialog'; 
+import { CertificatesPopupComponent } from '../certificates-popup/certificates-popup.component';
 
 
 @Component({
@@ -31,6 +32,15 @@ DeleteCrew(id: number): void {
   console.log(id);
   this.crewService.deleteCrew(id);  
   this.crewList = [...this.crewService.getCrewList()]; 
+}
+
+openCertificatesDialog(crew:Crew) {
+  const dialogRef = this.dialog.open(CertificatesPopupComponent, {
+    width: '500px',
+    height:'500px',
+    data: { certificates: crew.certificates },
+  });
+
 }
 
 openAddCrewDialog(): void {
