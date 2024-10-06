@@ -1,0 +1,60 @@
+<h4 mat-dialog-title>{{ editMode ? ('Edit Crew' | translate) : ('Add Crew' | translate) }}</h4>
+
+<div mat-dialog-content>
+  <form [formGroup]="crewForm">
+    <mat-form-field appearance="fill" style="margin-right: 10px;">
+      <mat-label>{{ 'First Name' | translate }}</mat-label>
+      <input matInput formControlName="firstName" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'Last Name' | translate }}</mat-label>
+      <input matInput formControlName="lastName" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="margin-right: 10px;">
+        <mat-label>{{ 'Title' | translate }}</mat-label>
+      <mat-select formControlName="title" required>
+        <mat-option value="Captain">{{ 'Captain' | translate }}</mat-option>
+        <mat-option value="Engineer">{{ 'Engineer' | translate }}</mat-option>
+        <mat-option value="Cooker">{{ 'Cooker' | translate }}</mat-option>
+        <mat-option value="Mechanicer">{{ 'Mechanicer' | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'Nationality' | translate }}</mat-label>
+      <input matInput formControlName="nationality" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="margin-right: 10px;">
+        <mat-label>{{ 'Days On Board' | translate }}</mat-label>
+      <input matInput formControlName="daysOnBoard" type="number" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'Daily Rate' | translate }}</mat-label>
+      <input matInput formControlName="dailyRate" type="number" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="margin-right: 10px;">
+        <mat-label>{{ 'Currency' | translate }}</mat-label>
+      <mat-select formControlName="currency" required>
+        <mat-option value="USD">{{ 'USD' | translate }}</mat-option>
+        <mat-option value="EUR">{{ 'EUR' | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'Total Income' | translate }}</mat-label>
+      <input matInput formControlName="totalIncome" type="number" required>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="Cancel()">{{ 'Cancel' | translate }}</button>
+  <button mat-button color="primary" (click)="Save()" [disabled]="!crewForm.valid">
+    {{ editMode ? ('Update' | translate) : ('Save' | translate) }}
+  </button>
+</div>

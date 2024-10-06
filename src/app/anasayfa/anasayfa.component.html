@@ -1,3 +1,7 @@
+    
+    <button mat-raised-button color="primary" (click)="openAddCrewDialog()">Add Crew</button>
+
+
     <mat-table [dataSource]="crewList" class="mat-elevation-z8">
   
         <ng-container matColumnDef="firstName">
@@ -51,7 +55,7 @@
             <mat-header-cell *matHeaderCellDef> {{"Actions" | translate}}</mat-header-cell>
             <mat-cell *matCellDef="let crew">
               <button mat-button style="margin-right: 2px;" (click)="DeleteCrew(crew.id)">{{"Delete"| translate}}</button>
-              <button mat-button style="margin-right: 2px;">{{"Edit"| translate}}</button>
+              <button mat-button style="margin-right: 2px;" (click)="openEditCrewDialog(crew.id)">{{"Edit"| translate}}</button>
               <button mat-button >{{ "Detail" | translate}}</button>
     
             </mat-cell>
