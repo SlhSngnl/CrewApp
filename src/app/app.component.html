@@ -1,8 +1,11 @@
-<button (click)="changeLanguage('en')">English</button>
-<button (click)="changeLanguage('fr')">Français</button>
-<button (click)="changeLanguage('pt')">Português</button>
-
-
-{{ 'welcome' | translate}}
-
+<div class="language-selector">
+  <mat-form-field appearance="fill">
+    <mat-label>{{"Language" | translate}}</mat-label>
+    <mat-select (selectionChange)="changeLanguage($event.value)">
+      <mat-option value="en">English</mat-option>
+      <mat-option value="fr">Français</mat-option>
+      <mat-option value="pt">Português</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 <router-outlet></router-outlet>

@@ -1,63 +1,63 @@
-<mat-table [dataSource]="crewList" class="mat-elevation-z8">
+    <mat-table [dataSource]="crewList" class="mat-elevation-z8">
   
-    <ng-container matColumnDef="firstName">
-      <mat-header-cell *matHeaderCellDef> {{"First Name" | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let crew"> {{ crew.firstName }} </mat-cell>
-    </ng-container>
-  
-    <ng-container matColumnDef="lastName">
-      <mat-header-cell *matHeaderCellDef>{{ "Last Name" | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let crew"> {{ crew.lastName }} </mat-cell>
-    </ng-container>
-  
-    <ng-container matColumnDef="title">
-      <mat-header-cell *matHeaderCellDef> {{"Title" | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let crew"> {{ crew.title }} </mat-cell>
-    </ng-container>
-  
-    <ng-container matColumnDef="nationality">
-      <mat-header-cell *matHeaderCellDef> {{"Nationality" | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let crew"> {{ crew.nationality }} </mat-cell>
-    </ng-container>
-  
-    <ng-container matColumnDef="daysOnBoard">
-      <mat-header-cell *matHeaderCellDef>{{ "Days On Board" | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let crew"> {{ crew.daysOnBoard }} </mat-cell>
-    </ng-container>
-  
-    <ng-container matColumnDef="dailyRate">
-      <mat-header-cell *matHeaderCellDef> {{"Daily Rate" | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let crew"> {{ crew.dailyRate }} </mat-cell>
-    </ng-container>
-  
-    <ng-container matColumnDef="currency">
-      <mat-header-cell *matHeaderCellDef> {{"Currency" | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let crew"> {{ crew.currency }} </mat-cell>
-    </ng-container>
-  
-    <ng-container matColumnDef="totalIncome">
-      <mat-header-cell *matHeaderCellDef>{{ "Total Income" | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let crew"> {{ crew.totalIncome }} </mat-cell>
-    </ng-container>
-  
-    <ng-container matColumnDef="certificates">
-      <mat-header-cell *matHeaderCellDef> {{"Certificates" | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let crew">
-        <button mat-button >{{"View Certificates"| translate}}</button>
-      </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef> {{"Actions" | translate}}</mat-header-cell>
-        <mat-cell *matCellDef="let crew">
-          <button mat-button style="margin-right: 2px;">{{"Delete"| translate}}</button>
-          <button mat-button style="margin-right: 2px;">{{"Edit"| translate}}</button>
-          <button mat-button >{{ "Detail" | translate}}</button>
-
-        </mat-cell>
-      </ng-container>
-  
-    <mat-header-row *matHeaderRowDef="visibleColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: visibleColumns;"></mat-row>
-  </mat-table>
-  
+        <ng-container matColumnDef="firstName">
+          <mat-header-cell *matHeaderCellDef> {{"First Name" | translate}}</mat-header-cell>
+          <mat-cell *matCellDef="let crew"> {{ crew.firstName }} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="lastName">
+          <mat-header-cell *matHeaderCellDef>{{ "Last Name" | translate}}</mat-header-cell>
+          <mat-cell *matCellDef="let crew"> {{ crew.lastName }} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef> {{"Title" | translate}}</mat-header-cell>
+          <mat-cell *matCellDef="let crew"> {{ crew.title }} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="nationality">
+          <mat-header-cell *matHeaderCellDef> {{"Nationality" | translate}}</mat-header-cell>
+          <mat-cell *matCellDef="let crew"> {{ crew.nationality }} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="daysOnBoard">
+          <mat-header-cell *matHeaderCellDef>{{ "Days On Board" | translate}}</mat-header-cell>
+          <mat-cell *matCellDef="let crew"> {{ crew.daysOnBoard }} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="dailyRate">
+          <mat-header-cell *matHeaderCellDef> {{"Daily Rate" | translate}}</mat-header-cell>
+          <mat-cell *matCellDef="let crew"> {{ crew.dailyRate }} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="currency">
+          <mat-header-cell *matHeaderCellDef> {{"Currency" | translate}}</mat-header-cell>
+          <mat-cell *matCellDef="let crew"> {{ crew.currency }} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="totalIncome">
+          <mat-header-cell *matHeaderCellDef>{{ "Total Income" | translate}}</mat-header-cell>
+          <mat-cell *matCellDef="let crew"> {{ crew.totalIncome }} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="certificates">
+          <mat-header-cell *matHeaderCellDef> {{"Certificates" | translate}}</mat-header-cell>
+          <mat-cell *matCellDef="let crew">
+            <button mat-button >{{"View Certificates"| translate}}</button>
+          </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> {{"Actions" | translate}}</mat-header-cell>
+            <mat-cell *matCellDef="let crew">
+              <button mat-button style="margin-right: 2px;">{{"Delete"| translate}}</button>
+              <button mat-button style="margin-right: 2px;">{{"Edit"| translate}}</button>
+              <button mat-button >{{ "Detail" | translate}}</button>
+    
+            </mat-cell>
+          </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="visibleColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: visibleColumns;"></mat-row>
+      </mat-table>
+      
