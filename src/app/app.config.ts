@@ -6,6 +6,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 export function createTranslateLoader(http:HttpClient){
@@ -24,7 +25,7 @@ export const appConfig: ApplicationConfig = {
         },
         defaultLanguage:'en',
       })
-    ]), provideHttpClient(withInterceptorsFromDi())
+    ]), provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()
   
   ]
 };
