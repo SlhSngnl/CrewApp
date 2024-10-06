@@ -36,7 +36,9 @@ export class CrewService {
       currency: 'USD',
       totalIncome: 24000,
       certificates: [
-        { type: 'Driving License', issueDate: new Date(1,1,2015), expiryDate: new Date(1,1,2025) }
+        { type: 'Driving License', issueDate: new Date(1,1,2015), expiryDate: new Date(1,1,2025) },
+        { type: 'Cooking Certificate', issueDate: new Date(1,2,2018), expiryDate: new Date(1,1,2050) }
+
       ]
     },
     {

@@ -13,6 +13,13 @@
     "Delete": "Supprimer",
     "Edit": "Modifier",
     "Detail": "Détail",
-    "Language":"langue"
+    "Language":"Langue",
+    "Crew Detail":"Détail de l'équipage",
+    "Add Crew":"Ajouter un équipage",
+    "Type":"Taper",
+    "Issue Date":"Date d'émission",
+    "Expry Date":"Date d'expiration" 
+
+
 
 }

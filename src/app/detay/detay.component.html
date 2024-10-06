@@ -1,1 +1,27 @@
-<p>detay</p>
+<mat-tab-group>
+    <mat-tab label="{{ 'Crew Detail' | translate }}">
+      <div>
+        <p><strong>{{ 'First Name' | translate }}:</strong> {{ crew?.firstName }}</p>
+        <p><strong>{{ 'Last Name' | translate }}:</strong> {{ crew?.lastName }}</p>
+        <p><strong>{{ 'Title' | translate }}:</strong> {{ crew?.title }}</p>
+        <p><strong>{{ 'Nationality' | translate }}:</strong> {{ crew?.nationality }}</p>
+        <p><strong>{{ 'Days On Board' | translate }}:</strong> {{ crew?.daysOnBoard }}</p>
+        <p><strong>{{ 'Daily Rate' | translate }}:</strong> {{ crew?.dailyRate }}</p>
+        <p><strong>{{ 'Currency' | translate }}:</strong> {{ crew?.currency }}</p>
+        <p><strong>{{ 'Total Income' | translate }}:</strong> {{ crew?.totalIncome }}</p>
+      </div>
+    </mat-tab>
+  
+    <mat-tab label="{{ 'Certificates' | translate }}">
+      <div>
+        <mat-list *ngIf="crew?.certificates">
+          <mat-list-item style="height: 150px;" *ngFor="let certificate of crew?.certificates">
+            <p><strong>{{ 'Type' | translate }}: </strong>{{ certificate.type }}</p>
+            <p><strong>{{ 'Issue Date' | translate }}:</strong> {{ certificate.issueDate | date }}</p>
+            <p><strong>{{ 'Expry Date' | translate }}:</strong> {{ certificate.expiryDate | date }}</p>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  

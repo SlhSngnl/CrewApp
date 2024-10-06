@@ -13,6 +13,13 @@
     "Delete": "Excluir",
     "Edit": "Editar",
     "Detail": "Detalhe",
-    "Language":"linguagem"
+    "Language":"linguagem",
+    "Crew Detail":"detalhe da tripulação",
+    "Add Crew":"Adicionar tripulação",
+    "Type":"Tipo",
+    "Issue Date":"Data de emissão",
+    "Expry Date":"Data de validade"    
+
+
 
 }

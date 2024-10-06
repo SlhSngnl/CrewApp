@@ -13,5 +13,10 @@
     "Delete":"Delete",
     "Edit":"Edit",
     "Detail":"Detail",
-    "Language":"Language"
+    "Language":"Language",
+    "Crew Detail":"Crew Detail",
+    "Add Crew":"Add Crew",
+    "Type":"Type",
+    "Issue Date":"Issue Date",
+    "Expry Date":"Expry Date"
 }
