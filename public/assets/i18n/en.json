@@ -1,3 +1,16 @@
 {
-    "welcome": "welcome"
+    "First Name": "First Name",
+    "Last Name":"Last Name",
+    "Title":"Title",
+    "Nationality":"Nationality",
+    "Days On Board":"Days On Board",
+    "Daily Rate":"Daily Rate",
+    "Currency":"Currency",
+    "Total Income":"Total Income",
+    "Certificates":"Certificates",
+    "View Certificates":"View Certificates",
+    "Actions":"Actions",
+    "Delete":"Delete",
+    "Edit":"Edit",
+    "Detail":"Detail"
 }

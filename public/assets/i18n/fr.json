@@ -1,3 +1,16 @@
 {
-    "welcome":"Bienvenue"
+    "First Name": "Prénom",
+    "Last Name": "Nom de famille",
+    "Title": "Titre",
+    "Nationality": "Nationalité",
+    "Days On Board": "Jours à bord",
+    "Daily Rate": "Tarif journalier",
+    "Currency": "Devise",
+    "Total Income": "Revenu total",
+    "Certificates": "Certificats",
+    "View Certificates": "Voir les certificats",
+    "Actions": "Actions",
+    "Delete": "Supprimer",
+    "Edit": "Modifier",
+    "Detail": "Détail"
 }
