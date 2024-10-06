@@ -45,7 +45,7 @@ openCertificatesDialog(crew:Crew) {
 
 openAddCrewDialog(): void {
   const dialogRef = this.dialog.open(CrewPopupComponent, {
-    width: '600px',
+    width: '700px',
     data: { crew: null } 
   });
 
@@ -62,7 +62,7 @@ openEditCrewDialog(id: number): void {
   var index = this.crewList.findIndex(x=>x.id==id);
   var crew = this.crewList[index];
   const dialogRef = this.dialog.open(CrewPopupComponent, {
-    width: '600px',
+    width: '700px',
     data: { crew } 
   });
 

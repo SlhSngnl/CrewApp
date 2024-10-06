@@ -4,7 +4,7 @@
         <mat-list-item style="height: 150px;" *ngFor="let certificate of data.certificates">
           <p>{{ 'Type' | translate }}: {{ certificate.type }}</p>
           <p>{{ 'Issue Date' | translate }}: {{ certificate.issueDate | date }}</p>
-          <p>{{ 'Expiry Date' | translate }}: {{ certificate.expiryDate | date }}</p>
+          <p>{{ 'Expry Date' | translate }}: {{ certificate.expireDate | date }}</p>
         </mat-list-item>
       </mat-list>
       <ng-template #noCertificates>

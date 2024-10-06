@@ -1,60 +1,100 @@
-<h4 mat-dialog-title>{{ editMode ? ('Edit Crew' | translate) : ('Add Crew' | translate) }}</h4>
+<div style="max-height: 500px; overflow-y: auto;">
+    <h4 style="margin-left: 50px;" mat-dialog-title>{{ editMode ? ('Edit Crew' | translate) : ('Add Crew'| translate) }}</h4>
 
-<div mat-dialog-content>
-  <form [formGroup]="crewForm">
-    <mat-form-field appearance="fill" style="margin-right: 10px;">
-      <mat-label>{{ 'First Name' | translate }}</mat-label>
-      <input matInput formControlName="firstName" required>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>{{ 'Last Name' | translate }}</mat-label>
-      <input matInput formControlName="lastName" required>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" style="margin-right: 10px;">
-        <mat-label>{{ 'Title' | translate }}</mat-label>
-      <mat-select formControlName="title" required>
-        <mat-option value="Captain">{{ 'Captain' | translate }}</mat-option>
-        <mat-option value="Engineer">{{ 'Engineer' | translate }}</mat-option>
-        <mat-option value="Cooker">{{ 'Cooker' | translate }}</mat-option>
-        <mat-option value="Mechanicer">{{ 'Mechanicer' | translate }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>{{ 'Nationality' | translate }}</mat-label>
-      <input matInput formControlName="nationality" required>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" style="margin-right: 10px;">
-        <mat-label>{{ 'Days On Board' | translate }}</mat-label>
-      <input matInput formControlName="daysOnBoard" type="number" required>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>{{ 'Daily Rate' | translate }}</mat-label>
-      <input matInput formControlName="dailyRate" type="number" required>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" style="margin-right: 10px;">
-        <mat-label>{{ 'Currency' | translate }}</mat-label>
-      <mat-select formControlName="currency" required>
-        <mat-option value="USD">{{ 'USD' | translate }}</mat-option>
-        <mat-option value="EUR">{{ 'EUR' | translate }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>{{ 'Total Income' | translate }}</mat-label>
-      <input matInput formControlName="totalIncome" type="number" required>
-    </mat-form-field>
-  </form>
-</div>
-
-<div mat-dialog-actions>
-  <button mat-button (click)="Cancel()">{{ 'Cancel' | translate }}</button>
-  <button mat-button color="primary" (click)="Save()" [disabled]="!crewForm.valid">
-    {{ editMode ? ('Update' | translate) : ('Save' | translate) }}
-  </button>
+    <div mat-dialog-content style="margin: 50px; ">
+      <form [formGroup]="crewForm">
+        <mat-form-field appearance="fill" style="margin-right: 10px;">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" style="margin-right: 10px;">
+            <mat-label>Title</mat-label>
+          <mat-select formControlName="title" required>
+            <mat-option value="Captain">Captain</mat-option>
+            <mat-option value="Engineer">Engineer</mat-option>
+            <mat-option value="Cooker">Cooker</mat-option>
+            <mat-option value="Mechanicer">Mechanicer</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Nationality</mat-label>
+          <input matInput formControlName="nationality" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" style="margin-right: 10px;">
+            <mat-label>Days On Board</mat-label>
+          <input matInput formControlName="daysOnBoard" type="number" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Daily Rate</mat-label>
+          <input matInput formControlName="dailyRate" type="number" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" style="margin-right: 10px;">
+            <mat-label>Currency</mat-label>
+          <mat-select formControlName="currency" required>
+            <mat-option value="USD">USD</mat-option>
+            <mat-option value="EUR">EUR</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Total Income</mat-label>
+          <input matInput formControlName="totalIncome" type="number" required>
+        </mat-form-field>
+    
+      <!-- Sertifikalar -->
+      <div formArrayName="certificates">
+        <h4>{{ 'Certificates' | translate }}</h4>
+        <div *ngFor="let certificate of certificates.controls; let i = index">
+          <div [formGroupName]="i">
+    
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'Certificate Type' | translate }}</mat-label>
+              <mat-select formControlName="type" required>
+                <mat-option *ngFor="let certificate of certificateList" [value]="certificate.Name">{{ certificate.Name }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'Issue Date' | translate }}</mat-label>
+                <input matInput [matDatepicker]="issueDatepicker" formControlName="issueDate" required>
+                <mat-datepicker-toggle matSuffix [for]="issueDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #issueDatepicker></mat-datepicker>
+              </mat-form-field>
+          
+              <mat-form-field appearance="fill">
+                <mat-label>{{ 'Expire Date' | translate }}</mat-label>
+                <input matInput [matDatepicker]="expireDatepicker" formControlName="expireDate" required>
+                <mat-datepicker-toggle matSuffix [for]="expireDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #expireDatepicker></mat-datepicker>
+              </mat-form-field>
+    
+            <button mat-button (click)="removeCertificate(i)">{{ 'Remove' | translate }}</button>
+    
+          </div>
+        </div>
+    
+        <button mat-button (click)="addCertificate()">{{ 'Add Certificate' | translate }}</button>
+    
+      </div>
+    
+      </form>
+    </div>
+    
+    <div mat-dialog-actions>
+      <button mat-button (click)="Cancel()">Cancel</button>
+      <button mat-button color="primary" (click)="Save()" [disabled]="!crewForm.valid">
+        {{ editMode ? 'Update' : 'Save' }}
+      </button>
+    </div>
+    
 </div>
