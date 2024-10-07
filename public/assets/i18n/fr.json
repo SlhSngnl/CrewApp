@@ -18,7 +18,10 @@
     "Add Crew":"Ajouter un équipage",
     "Type":"Taper",
     "Issue Date":"Date d'émission",
-    "Expire Date":"Date d'expiration" 
+    "Expire Date":"Date d'expiration" ,
+    "Add Certificate Type":"Ajouter un type de certificat",
+    "Name is required":"Le nom est requis",
+    "Add":"Ajouter"
 
 
 

@@ -18,5 +18,8 @@
     "Add Crew":"Add Crew",
     "Type":"Type",
     "Issue Date":"Issue Date",
-    "Expire Date":"Expire Date"
+    "Expire Date":"Expire Date",
+    "Add Certificate Type":"Add Certificate Type",
+    "Name is required":"Name is required",
+    "Add":"Add"
 }

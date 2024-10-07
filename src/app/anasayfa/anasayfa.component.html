@@ -1,5 +1,6 @@
     
-    <button mat-raised-button color="primary" (click)="openAddCrewDialog()">Add Crew</button>
+    <button mat-raised-button color="primary" style="margin-right: 5px;" (click)="openAddCrewDialog()">{{"Add Crew" | translate}}</button>
+    <button mat-raised-button color="primary" [routerLink]="['certificate-type']">{{"Add Certificate Type"|translate}}</button>
 
 
     <mat-table [dataSource]="crewList" class="mat-elevation-z8">

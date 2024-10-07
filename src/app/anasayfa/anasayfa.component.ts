@@ -7,6 +7,7 @@ import { CrewPopupComponent } from '../crew-popup/crew-popup.component';
 import { MatDialog } from '@angular/material/dialog'; 
 import { CertificatesPopupComponent } from '../certificates-popup/certificates-popup.component';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -16,7 +17,8 @@ import { CommonModule } from '@angular/common';
     TranslateModule,
     RouterModule,
     MatTableModule,
-    CommonModule
+    CommonModule,
+    MatButtonModule
   ],
   templateUrl: './anasayfa.component.html',
   styleUrl: './anasayfa.component.css'

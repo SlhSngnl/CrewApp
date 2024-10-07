@@ -5,11 +5,12 @@ import { MatTabGroup , MatTab } from '@angular/material/tabs';
 import { MatList, MatListItem} from '@angular/material/list'; 
 import { TranslateModule } from '@ngx-translate/core';
 import { DatePipe , CommonModule} from '@angular/common';
-
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-detay',
   standalone: true,
-  imports: [MatTabGroup, MatTab, TranslateModule,MatList, MatListItem,DatePipe,CommonModule],
+  imports: [MatTabGroup, MatTab, TranslateModule,MatList, MatListItem,DatePipe,CommonModule,RouterModule,MatButtonModule],
   templateUrl: './detay.component.html',
   styleUrl: './detay.component.css'
 })
