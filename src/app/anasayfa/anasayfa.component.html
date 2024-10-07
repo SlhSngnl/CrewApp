@@ -2,8 +2,8 @@
     <button mat-raised-button color="primary" style="margin-right: 5px;" (click)="openAddCrewDialog()">{{"Add Crew" | translate}}</button>
     <button mat-raised-button color="primary" [routerLink]="['certificate-type']">{{"Add Certificate Type"|translate}}</button>
 
-
-    <mat-table [dataSource]="crewList" class="mat-elevation-z8">
+<div class="table-container">
+    <mat-table [dataSource]="crewList" class="mat-elevation-z8" style="width: 100%;">
   
         <ng-container matColumnDef="firstName">
           <mat-header-cell *matHeaderCellDef> {{"First Name" | translate}}</mat-header-cell>
@@ -39,7 +39,14 @@
           <mat-header-cell *matHeaderCellDef> {{"Currency" | translate}}</mat-header-cell>
           <mat-cell *matCellDef="let crew"> {{ crew.currency }} </mat-cell>
         </ng-container>
-      
+
+        <ng-container matColumnDef="discount">
+            <mat-header-cell *matHeaderCellDef> {{ 'Discount' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let crew">
+              <input matInput type="number" [(ngModel)]="crew.discount" (input)="discountIncome(crew.discount,crew.id)">
+            </mat-cell>
+          </ng-container>
+          
         <ng-container matColumnDef="totalIncome">
           <mat-header-cell *matHeaderCellDef>{{ "Total Income" | translate}}</mat-header-cell>
           <mat-cell *matCellDef="let crew"> {{ crew.totalIncome }} </mat-cell>
@@ -55,9 +62,12 @@
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef> {{"Actions" | translate}}</mat-header-cell>
             <mat-cell *matCellDef="let crew">
-              <button mat-button style="margin-right: 2px;" (click)="DeleteCrew(crew.id)">{{"Delete"| translate}}</button>
-              <button mat-button style="margin-right: 2px;" (click)="openEditCrewDialog(crew.id)">{{"Edit"| translate}}</button>
+                <div style="text-align: center;">
+                <button mat-button (click)="DeleteCrew(crew.id)">{{"Delete"| translate}}</button>
+              <button mat-button (click)="openEditCrewDialog(crew.id)">{{"Edit"| translate}}</button>
               <button mat-button [routerLink]="['/detay', crew.id]">{{ "Detail" | translate }}</button>    
+                </div>
+          
             </mat-cell>
           </ng-container>
       
@@ -71,4 +81,6 @@
             <p>{{ currency }}: {{ totalIncomeByCurrency[currency] | currency:currency }}</p>
         </div>
       </div>
+</div>
+
       

@@ -21,7 +21,20 @@
     "Expire Date":"Data de validade",
     "Add Certificate Type":"Adicionar Tipo de Certificado",
     "Name is required":"Nome é obrigatório",
-    "Add":"Adicionar"
+    "Add":"Adicionar",
+    "Captain": "Capitão",
+    "Engineer": "Engenheiro",
+    "Cooker": "Cozinheiro",
+    "Mechanicer": "Mecânico",
+    "USA": "EUA",
+    "Turkey": "Turquia",
+    "France": "França",
+    "Portugal": "Portugal",
+    "Remove": "Remover",
+    "Add Certificate": "Adicionar Certificado",
+    "Cancel": "Cancelar",
+    "Update": "Atualizar",
+    "Save": "Salvar"
 
 
 

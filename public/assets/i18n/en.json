@@ -21,5 +21,18 @@
     "Expire Date":"Expire Date",
     "Add Certificate Type":"Add Certificate Type",
     "Name is required":"Name is required",
-    "Add":"Add"
+    "Add":"Add",
+    "Captain": "Captain",
+    "Engineer": "Engineer",
+    "Cooker": "Cooker",
+    "Mechanicer": "Mechanic",
+    "USA": "USA",
+    "Turkey": "Turkey",
+    "France": "France",
+    "Portugal": "Portugal",
+    "Remove": "Remove",
+    "Add Certificate": "Add Certificate",
+    "Cancel": "Cancel",
+    "Update": "Update",
+    "Save": "Save"
 }

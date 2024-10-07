@@ -1,0 +1,12 @@
+.table-container {
+    padding: 10px; /* Yanlardan 10px boşluk bırakır */
+    width: calc(100% - 20px); /* Kapsayıcı genişliğini ayarlar, sağ ve sol 10px boşluk kalır */
+    overflow-x: auto; /* Yatay taşma durumunda kaydırma çubuğu ekler */
+    overflow-y: hidden; /* Dikey taşma durumunda kaydırmayı gizler */
+    box-sizing: border-box; /* Padding’in genişlik hesaplamasına dahil edilmesini sağlar */
+  }
+
+  input {
+    max-width: 80px; 
+  }
+  

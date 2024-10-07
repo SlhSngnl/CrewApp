@@ -8,6 +8,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { CertificatesPopupComponent } from '../certificates-popup/certificates-popup.component';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+
 
 
 @Component({
@@ -18,7 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
     RouterModule,
     MatTableModule,
     CommonModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   templateUrl: './anasayfa.component.html',
   styleUrl: './anasayfa.component.css'
@@ -26,7 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 export class AnasayfaComponent {
 crewList:Crew[];
-visibleColumns:string[]= ['firstName', 'lastName', 'nationality', 'title', 'daysOnBoard', 'dailyRate', 'totalIncome','currency', 'certificates','actions'];
+visibleColumns:string[]= ['firstName', 'lastName', 'nationality', 'title', 'daysOnBoard', 'dailyRate','discount', 'totalIncome','currency', 'certificates','actions'];
 totalIncomeByCurrency: { [key: string]: number } = {};
 currencies: string[] = [];
 
@@ -39,6 +42,12 @@ constructor(private crewService: CrewService, private dialog:MatDialog) {
 DeleteCrew(id: number): void {
   console.log(id);
   this.crewService.deleteCrew(id);  
+  this.crewList = [...this.crewService.getCrewList()]; 
+  this.calculateTotalIncome();
+}
+
+discountIncome(discount: number,id:number) {
+  this.crewService.discountIncome(discount,id);
   this.crewList = [...this.crewService.getCrewList()]; 
   this.calculateTotalIncome();
 }

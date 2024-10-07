@@ -9,6 +9,7 @@ export interface Crew {
   daysOnBoard: number;
   dailyRate: number;
   currency: string;
+  discount:number,
   totalIncome: number;
   certificates: Certificate[];
 }
@@ -34,6 +35,7 @@ export class CrewService {
       daysOnBoard: 120,
       dailyRate: 200,
       currency: 'USD',
+      discount:0,
       totalIncome: 24000,
       certificates: [
         { type: 'Driving License', issueDate: new Date(2015, 0, 1), expireDate: new Date(2025, 0, 1) }, // 1 Ocak 2015 - 1 Ocak 2025
@@ -49,6 +51,7 @@ export class CrewService {
       daysOnBoard: 100,
       dailyRate: 150,
       currency: 'EUR',
+      discount:0,
       totalIncome: 15000,
       certificates: [
         { type: 'Cooking Certificate', issueDate: new Date(2018, 1, 1), expireDate: new Date(2050, 0, 1) } // 1 Şubat 2018 - 1 Ocak 2050
@@ -63,6 +66,7 @@ export class CrewService {
       daysOnBoard: 110,
       dailyRate: 180,
       currency: 'USD',
+      discount:0,
       totalIncome: 19800,
       certificates: []
     },
@@ -75,6 +79,7 @@ export class CrewService {
       daysOnBoard: 100,
       dailyRate: 170,
       currency: 'USD',
+      discount:0,
       totalIncome: 17000,
       certificates: [
         { type: 'Engineer Certificate', issueDate: new Date(2015, 0, 1), expireDate: new Date(2025, 0, 1) } // 1 Ocak 2015 - 1 Ocak 2025
@@ -89,6 +94,7 @@ export class CrewService {
       daysOnBoard: 120,
       dailyRate: 200,
       currency: 'USD',
+      discount:0,
       totalIncome: 24000,
       certificates: [
         { type: 'Cooking Certificate', issueDate: new Date(2015, 0, 1), expireDate: new Date(2025, 0, 1) } // 1 Ocak 2015 - 1 Ocak 2025
@@ -116,5 +122,9 @@ export class CrewService {
   deleteCrew(id: number) {
     const index = this.crewList.findIndex(crew => crew.id === id);
     this.crewList.splice(index, 1);
+  }
+  discountIncome(discount: number,id:number) {
+    const index = this.crewList.findIndex(crew => crew.id === id);
+    this.crewList[index].totalIncome-=discount;
   }
 }
