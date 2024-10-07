@@ -38,6 +38,7 @@ export class CrewPopupComponent {
       this.certificateList=this.certificateService.getCertificateList();
       this.editMode = !!data.crew; 
       this.crewForm = this.formBuilder.group({
+        id: [data?.crew?.id],
         firstName: [data?.crew?.firstName || '', Validators.required],
         lastName: [data?.crew?.lastName || '', Validators.required],
         nationality: [data?.crew?.nationality || '', Validators.required],
