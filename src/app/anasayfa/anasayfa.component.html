@@ -63,4 +63,11 @@
         <mat-header-row *matHeaderRowDef="visibleColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: visibleColumns;"></mat-row>
       </mat-table>
+
+      <div style="margin-top: 10px;">
+        <p><strong>{{"Total Income"|translate}}</strong></p>
+        <div *ngFor="let currency of currencies">
+            <p>{{ currency }}: {{ totalIncomeByCurrency[currency] | currency:currency }}</p>
+        </div>
+      </div>
       

@@ -6,6 +6,7 @@ import { CrewService, Crew } from '../crew.service';
 import { CrewPopupComponent } from '../crew-popup/crew-popup.component';
 import { MatDialog } from '@angular/material/dialog'; 
 import { CertificatesPopupComponent } from '../certificates-popup/certificates-popup.component';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { CertificatesPopupComponent } from '../certificates-popup/certificates-p
   imports: [
     TranslateModule,
     RouterModule,
-    MatTableModule
+    MatTableModule,
+    CommonModule
   ],
   templateUrl: './anasayfa.component.html',
   styleUrl: './anasayfa.component.css'
@@ -22,16 +24,21 @@ import { CertificatesPopupComponent } from '../certificates-popup/certificates-p
 
 export class AnasayfaComponent {
 crewList:Crew[];
-visibleColumns:string[]= ['firstName', 'lastName', 'nationality', 'title', 'daysOnBoard', 'dailyRate', 'totalIncome', 'certificates','actions'];
+visibleColumns:string[]= ['firstName', 'lastName', 'nationality', 'title', 'daysOnBoard', 'dailyRate', 'totalIncome','currency', 'certificates','actions'];
+totalIncomeByCurrency: { [key: string]: number } = {};
+currencies: string[] = [];
 
 constructor(private crewService: CrewService, private dialog:MatDialog) {
   this.crewList = this.crewService.getCrewList();
+  this.calculateTotalIncome();
+
 }
 
 DeleteCrew(id: number): void {
   console.log(id);
   this.crewService.deleteCrew(id);  
   this.crewList = [...this.crewService.getCrewList()]; 
+  this.calculateTotalIncome();
 }
 
 openCertificatesDialog(crew:Crew) {
@@ -53,8 +60,10 @@ openAddCrewDialog(): void {
     if (result) {
       this.crewService.addCrew(result); 
       this.crewList = [...this.crewService.getCrewList()];
+      this.calculateTotalIncome();
     }
   });
+  
 }
 
 openEditCrewDialog(id: number): void {
@@ -69,8 +78,24 @@ openEditCrewDialog(id: number): void {
   dialogRef.afterClosed().subscribe(result => {
     if (result) {
       this.crewService.updateCrew(result); 
-      this.crewList = [...this.crewService.getCrewList()]; 
+      this.crewList = [...this.crewService.getCrewList()];
+      this.calculateTotalIncome(); 
     }
   });
 }
+
+calculateTotalIncome() {
+  const incomeByCurrency: { [key: string]: number } = {};
+
+  this.crewList.forEach(crew => {
+    if (!incomeByCurrency[crew.currency]) {
+      incomeByCurrency[crew.currency] = 0;
+    }
+    incomeByCurrency[crew.currency] += crew.totalIncome;
+  });
+
+  this.totalIncomeByCurrency = incomeByCurrency;
+  this.currencies = Object.keys(this.totalIncomeByCurrency);
+}
+
 }
