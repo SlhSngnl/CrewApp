@@ -107,6 +107,8 @@ export class CrewService {
   }
 
   addCrew(newCrew: Crew) {
+    var lastid=this.crewList[this.crewList.length-1].id;
+    newCrew.id=lastid+1;
     this.crewList.push(newCrew);
   }
 

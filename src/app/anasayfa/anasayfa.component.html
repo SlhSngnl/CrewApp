@@ -4,7 +4,7 @@
 
 <div class="table-container">
     <mat-table [dataSource]="crewList" class="mat-elevation-z8" style="width: 100%;">
-  
+
         <ng-container matColumnDef="firstName">
           <mat-header-cell *matHeaderCellDef> {{"First Name" | translate}}</mat-header-cell>
           <mat-cell *matCellDef="let crew"> {{ crew.firstName }} </mat-cell>
