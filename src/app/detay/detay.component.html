@@ -20,6 +20,7 @@
         <mat-list *ngIf="crew?.certificates">
           <mat-list-item style="height: 150px;" *ngFor="let certificate of crew?.certificates">
             <p><strong>{{ 'Type' | translate }}: </strong>{{ certificate.type }}</p>
+            <p><strong>{{ 'Description' | translate }}: </strong>{{ certificate.description }}</p>
             <p><strong>{{ 'Issue Date' | translate }}:</strong> {{ certificate.issueDate | date }}</p>
             <p><strong>{{ 'Expire Date' | translate }}:</strong> {{ certificate.expireDate | date }}</p>
           </mat-list-item>

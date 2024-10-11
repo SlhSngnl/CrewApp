@@ -76,6 +76,7 @@ export class CrewPopupComponent {
       });
     }
   
+
     createCertificateGroup(certificate?: any): FormGroup {
       return this.formBuilder.group({
         type: [certificate?.type || '', Validators.required],

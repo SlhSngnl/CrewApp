@@ -3,8 +3,10 @@ import { Injectable } from '@angular/core';
 
 
 export interface Certificate {
-  name: string;
-  description: string;
+  type?: string;
+  description?: string;
+  issueDate?: Date;
+  expireDate?: Date;
 }
 
 @Injectable({
@@ -15,15 +17,15 @@ export class CertificateService {
 
     certificateList: Certificate[] = [
       {
-        name:"Driving License",
+        type:"Driving License",
         description: 'Driving License',
       },
       {
-        name:"Cooking Certificate",
+        type:"Cooking Certificate",
         description: 'Cooking Certificate',
       },
       {
-        name:"Engineer Certificate",
+        type:"Engineer Certificate",
         description: 'Engineer Certificate',
       },
       
@@ -31,6 +33,10 @@ export class CertificateService {
 
   getCertificateList() {
     return this.certificateList;
+  }
+
+  getCertificate(type:string){
+    return this.certificateList.find(x=>x.type===type);
   }
 
   addCertificate(newCertificate: Certificate) {

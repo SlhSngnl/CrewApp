@@ -33,7 +33,7 @@ export class CertificateTypeComponent {
 
   constructor(private fb: FormBuilder, private certificateService: CertificateService) {
     this.certificateTypeForm = this.fb.group({
-      name: ['', Validators.required],
+      type: ['', Validators.required],
       description: ['']
     });
   }

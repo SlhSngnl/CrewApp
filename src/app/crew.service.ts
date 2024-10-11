@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Certificate, CertificateService } from './certificate.service';
 
 export interface Crew {
   id: number;
@@ -14,16 +15,12 @@ export interface Crew {
   certificates: Certificate[];
 }
 
-export interface Certificate {
-  type: string;
-  issueDate: Date;
-  expireDate: Date;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrewService {
+  constructor(private certificateService: CertificateService) {}
 
   crewList: Crew[] = [
     {
@@ -38,8 +35,8 @@ export class CrewService {
       discount:0,
       totalIncome: 24000,
       certificates: [
-        { type: 'Driving License', issueDate: new Date(2015, 0, 1), expireDate: new Date(2025, 0, 1) }, // 1 Ocak 2015 - 1 Ocak 2025
-        { type: 'Cooking Certificate', issueDate: new Date(2018, 1, 1), expireDate: new Date(2050, 0, 1) } // 1 Şubat 2018 - 1 Ocak 2050
+        { type: 'Driving License',description:"Driving License", issueDate: new Date(2015, 0, 1), expireDate: new Date(2025, 0, 1) }, // 1 Ocak 2015 - 1 Ocak 2025
+        { type: 'Cooking Certificate',description:"Cooking Certificate", issueDate: new Date(2018, 1, 1), expireDate: new Date(2050, 0, 1) } // 1 Şubat 2018 - 1 Ocak 2050
       ]
     },
     {
@@ -54,7 +51,7 @@ export class CrewService {
       discount:0,
       totalIncome: 15000,
       certificates: [
-        { type: 'Cooking Certificate', issueDate: new Date(2018, 1, 1), expireDate: new Date(2050, 0, 1) } // 1 Şubat 2018 - 1 Ocak 2050
+        { type: 'Cooking Certificate',description:"Cooking Certificate", issueDate: new Date(2018, 1, 1), expireDate: new Date(2050, 0, 1) } // 1 Şubat 2018 - 1 Ocak 2050
       ]
     },
     {
@@ -82,7 +79,7 @@ export class CrewService {
       discount:0,
       totalIncome: 17000,
       certificates: [
-        { type: 'Engineer Certificate', issueDate: new Date(2015, 0, 1), expireDate: new Date(2025, 0, 1) } // 1 Ocak 2015 - 1 Ocak 2025
+        { type: 'Engineer Certificate',description:"Engineer Certificate", issueDate: new Date(2015, 0, 1), expireDate: new Date(2025, 0, 1) } // 1 Ocak 2015 - 1 Ocak 2025
       ]
     },
     {
@@ -97,7 +94,7 @@ export class CrewService {
       discount:0,
       totalIncome: 24000,
       certificates: [
-        { type: 'Cooking Certificate', issueDate: new Date(2015, 0, 1), expireDate: new Date(2025, 0, 1) } // 1 Ocak 2015 - 1 Ocak 2025
+        { type: 'Cooking Certificate',description:"Cooking Certificate", issueDate: new Date(2015, 0, 1), expireDate: new Date(2025, 0, 1) } // 1 Ocak 2015 - 1 Ocak 2025
       ]
     },
   ];
@@ -109,7 +106,15 @@ export class CrewService {
   addCrew(newCrew: Crew) {
     var lastid=this.crewList[this.crewList.length-1].id;
     newCrew.id=lastid+1;
+    this.setCertificatesDescription(newCrew.certificates);
     this.crewList.push(newCrew);
+  }
+
+  setCertificatesDescription(certificates:Certificate[]){
+      certificates.forEach(certificate=>{
+      certificate.description=this.certificateService.getCertificate(certificate.type||'')?.description;
+    })
+    
   }
 
   getCrewById(id: number): Crew | undefined {
@@ -118,6 +123,7 @@ export class CrewService {
 
   updateCrew(updatedCrew: Crew) {
     const index = this.crewList.findIndex(crew => crew.id === updatedCrew.id);
+    this.setCertificatesDescription(updatedCrew.certificates);
     this.crewList[index] = updatedCrew;
   }
 
