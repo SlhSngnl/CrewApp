@@ -127,9 +127,6 @@ export class CrewService {
   }
   discountIncome(discount: number,id:number) {
 
-    if (discount < 0 || discount > 100) {
-      return; 
-    }
 
     const index = this.crewList.findIndex(crew => crew.id === id);
     var crew = this.crewList[index];
@@ -137,7 +134,7 @@ export class CrewService {
     const totalIncomeWithoutDiscount = crew.daysOnBoard * crew.dailyRate;
 
 
-    if(discount == null || discount == 0) 
+    if(discount == null || discount == 0 || discount < 0 || discount > 100) 
       {
         this.crewList[index].totalIncome = totalIncomeWithoutDiscount;
     } 
