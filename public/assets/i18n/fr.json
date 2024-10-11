@@ -34,7 +34,8 @@
     "Add Certificate": "Ajouter un certificat",
     "Cancel": "Annuler",
     "Update": "Mettre à jour",
-    "Save": "Enregistrer"
+    "Save": "Enregistrer",
+    "La remise doit être comprise entre 0 et 100": "La remise doit être comprise entre 0 et 100"
 
 
 

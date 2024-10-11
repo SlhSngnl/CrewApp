@@ -34,5 +34,6 @@
     "Add Certificate": "Add Certificate",
     "Cancel": "Cancel",
     "Update": "Update",
-    "Save": "Save"
+    "Save": "Save",
+    "Discount must be between 0 and 100":"Discount must be between 0 and 100"
 }

@@ -9,6 +9,7 @@ import { CertificatesPopupComponent } from '../certificates-popup/certificates-p
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { MatError } from '@angular/material/form-field';
 
 
 
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     CommonModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatError
   ],
   templateUrl: './anasayfa.component.html',
   styleUrl: './anasayfa.component.css'

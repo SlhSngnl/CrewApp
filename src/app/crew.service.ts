@@ -126,7 +126,24 @@ export class CrewService {
     this.crewList.splice(index, 1);
   }
   discountIncome(discount: number,id:number) {
+
+    if (discount < 0 || discount > 100) {
+      return; 
+    }
+
     const index = this.crewList.findIndex(crew => crew.id === id);
-    this.crewList[index].totalIncome-=discount;
+    var crew = this.crewList[index];
+    
+    const totalIncomeWithoutDiscount = crew.daysOnBoard * crew.dailyRate;
+
+
+    if(discount == null || discount == 0) 
+      {
+        this.crewList[index].totalIncome = totalIncomeWithoutDiscount;
+    } 
+    else 
+    {
+        this.crewList[index].totalIncome = totalIncomeWithoutDiscount - totalIncomeWithoutDiscount * discount / 100;
+    }
   }
 }

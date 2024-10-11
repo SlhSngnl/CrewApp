@@ -1,12 +1,19 @@
 .table-container {
-    padding: 10px; /* Yanlardan 10px boşluk bırakır */
-    width: calc(100% - 20px); /* Kapsayıcı genişliğini ayarlar, sağ ve sol 10px boşluk kalır */
-    overflow-x: auto; /* Yatay taşma durumunda kaydırma çubuğu ekler */
-    overflow-y: hidden; /* Dikey taşma durumunda kaydırmayı gizler */
-    box-sizing: border-box; /* Padding’in genişlik hesaplamasına dahil edilmesini sağlar */
+    padding: 10px; 
+    width: calc(100% - 20px); 
+    overflow-x: auto; 
+    overflow-y: hidden; 
+    box-sizing: border-box; 
   }
 
   input {
     max-width: 80px; 
   }
   
+  .error-message {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    top: 120px;
+    white-space: nowrap;
+  }

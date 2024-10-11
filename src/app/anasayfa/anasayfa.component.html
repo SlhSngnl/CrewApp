@@ -43,7 +43,10 @@
         <ng-container matColumnDef="discount">
             <mat-header-cell *matHeaderCellDef> {{ 'Discount' | translate }} </mat-header-cell>
             <mat-cell *matCellDef="let crew">
-              <input matInput type="number" [(ngModel)]="crew.discount" (input)="discountIncome(crew.discount,crew.id)">
+              <input matInput type="number" [(ngModel)]="crew.discount" (input)="discountIncome(crew.discount,crew.id)"  min="0" max="100" required #discountInput="ngModel"  >
+              <mat-error *ngIf="discountInput?.errors?.['min'] || discountInput?.errors?.['max']" class="error-message">
+                {{ 'Discount must be between 0 and 100' | translate }}
+              </mat-error>
             </mat-cell>
           </ng-container>
           
