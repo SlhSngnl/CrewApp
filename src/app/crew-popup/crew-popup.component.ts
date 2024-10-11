@@ -47,13 +47,25 @@ export class CrewPopupComponent {
         dailyRate: [data?.crew?.dailyRate || '', Validators.required],
         currency: [data?.crew?.currency || '', Validators.required],
         totalIncome: [data?.crew?.totalIncome || '', Validators.required],
+        discount:0,
         certificates: this.formBuilder.array([])
       });
 
       if (data?.crew?.certificates) {
         this.setCertificates(data.crew.certificates);
       }
+
+      this.crewForm.get('daysOnBoard')?.valueChanges.subscribe(() => this.calculateTotalIncome());
+      this.crewForm.get('dailyRate')?.valueChanges.subscribe(() => this.calculateTotalIncome());
+   
     }
+    calculateTotalIncome() {
+      const daysOnBoard = this.crewForm.get('daysOnBoard')?.value || 0;
+      const dailyRate = this.crewForm.get('dailyRate')?.value || 0;
+      const totalIncome = daysOnBoard * dailyRate;
+      this.crewForm.get('totalIncome')?.setValue(totalIncome, { emitEvent: false });
+    }
+
     get certificates(): FormArray {
       return this.crewForm.get('certificates') as FormArray;
     }

@@ -66,9 +66,9 @@
             <mat-header-cell *matHeaderCellDef> {{"Actions" | translate}}</mat-header-cell>
             <mat-cell *matCellDef="let crew">
                 <div style="text-align: center;">
-                <button mat-button (click)="DeleteCrew(crew.id)">{{"Delete"| translate}}</button>
-              <button mat-button (click)="openEditCrewDialog(crew.id)">{{"Edit"| translate}}</button>
-              <button mat-button [routerLink]="['/detay', crew.id]">{{ "Detail" | translate }}</button>    
+                <button class="actionButton" mat-raised-button (click)="DeleteCrew(crew.id)">{{"Delete"| translate}}</button>
+              <button class="actionButton" mat-raised-button (click)="openEditCrewDialog(crew.id)">{{"Edit"| translate}}</button>
+              <button class="actionButton" mat-raised-button [routerLink]="['/detay', crew.id]">{{ "Detail" | translate }}</button>    
                 </div>
           
             </mat-cell>

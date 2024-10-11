@@ -17,3 +17,8 @@
     top: 120px;
     white-space: nowrap;
   }
+
+  .actionButton{
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
