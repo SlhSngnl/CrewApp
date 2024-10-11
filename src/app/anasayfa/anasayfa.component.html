@@ -58,7 +58,7 @@
         <ng-container matColumnDef="certificates">
           <mat-header-cell *matHeaderCellDef> {{"Certificates" | translate}}</mat-header-cell>
           <mat-cell *matCellDef="let crew">
-            <button mat-button (click)="openCertificatesDialog(crew)">{{"View Certificates"| translate}}</button>
+            <button mat-button (click)="openCertificatesDialog(crew.id)">{{"View Certificates"| translate}}</button>
           </mat-cell>
         </ng-container>
     

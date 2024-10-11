@@ -54,11 +54,12 @@ discountIncome(discount: number,id:number) {
   this.calculateTotalIncome();
 }
 
-openCertificatesDialog(crew:Crew) {
+openCertificatesDialog(id:number) {
+  const crew=this.crewService.getCrewById(id);
   const dialogRef = this.dialog.open(CertificatesPopupComponent, {
     width: '500px',
     height:'500px',
-    data: { certificates: crew.certificates },
+    data: { certificates: crew?.certificates },
   });
 
 }
