@@ -11,12 +11,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Certificate, CertificateService } from '../certificate.service';
 import { CommonModule } from '@angular/common';
 import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core'; 
+import { MatIconModule } from '@angular/material/icon';
+import { PopupTitleComponent } from '../popup-title/popup-title.component'; 
 
 
 @Component({
   selector: 'app-crew-popup',
   standalone: true,
-  imports: [CommonModule,MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, TranslateModule,ReactiveFormsModule,MatDatepicker,MatDatepickerModule,MatNativeDateModule],
+  imports: [PopupTitleComponent,MatIconModule,CommonModule,MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, TranslateModule,ReactiveFormsModule,MatDatepicker,MatDatepickerModule,MatNativeDateModule],
   templateUrl: './crew-popup.component.html',
   styleUrl: './crew-popup.component.css',
   providers: [
@@ -101,4 +103,5 @@ export class CrewPopupComponent {
     Cancel(): void {
       this.dialogRef.close();
     }
+
   }

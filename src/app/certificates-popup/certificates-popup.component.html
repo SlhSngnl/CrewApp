@@ -1,4 +1,5 @@
-    <h4 style="margin-left: 10px;" mat-dialog-title>Certificates</h4>
+<app-popup-title [title]="'Certificates'" (closeFunction)="Cancel()"></app-popup-title>
+
     <mat-dialog-content style="overflow-y: auto;">
       <mat-list *ngIf="data.certificates.length; else noCertificates">
         <mat-list-item style="height: 150px;" *ngFor="let certificate of data.certificates">

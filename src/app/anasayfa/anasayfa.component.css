@@ -1,5 +1,6 @@
 .table-container {
-    padding: 10px; 
+    padding-left: 50px;
+    padding-right: 30px;
     width: calc(100% - 20px); 
     overflow-x: auto; 
     overflow-y: hidden; 
@@ -21,4 +22,9 @@
   .actionButton{
     margin-bottom: 5px;
     margin-top: 5px;
+  }
+
+  .button-container{
+    padding-left: 50px;
+    padding-top: 50px;
   }

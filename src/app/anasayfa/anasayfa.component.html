@@ -1,6 +1,11 @@
-    
-  <button mat-raised-button color="primary" style="margin-right: 5px; margin-left: 5px;" (click)="openAddCrewDialog()">{{"Add Crew" | translate}}</button>
-  <button mat-raised-button color="primary" [routerLink]="['certificate-type']">{{"Add Certificate Type"|translate}}</button>
+<div class="button-container">
+    <button mat-raised-button color="primary" style="margin-right: 5px;" (click)="openAddCrewDialog()">
+      <mat-icon>add</mat-icon>
+      {{"Add Crew" | translate}}</button>
+    <button mat-raised-button color="primary" [routerLink]="['certificate-type']">
+      <mat-icon>add</mat-icon>
+      {{"Add Certificate Type"|translate}}</button>
+</div>
 
 <div class="table-container">
   <mat-table [dataSource]="crewList" class="mat-elevation-z8" style="width: 100%;">
@@ -58,7 +63,9 @@
         <ng-container matColumnDef="certificates">
           <mat-header-cell *matHeaderCellDef> {{"Certificates" | translate}}</mat-header-cell>
           <mat-cell *matCellDef="let crew">
-            <button mat-button (click)="openCertificatesDialog(crew.id)">{{"View Certificates"| translate}}</button>
+            <button  mat-raised-button (click)="openCertificatesDialog(crew.id)">
+              <mat-icon>visibility</mat-icon>
+              {{"View Certificates"| translate}}</button>
           </mat-cell>
         </ng-container>
     
@@ -66,9 +73,15 @@
             <mat-header-cell *matHeaderCellDef> {{"Actions" | translate}}</mat-header-cell>
             <mat-cell *matCellDef="let crew">
                 <div style="text-align: center;">
-                <button class="actionButton" mat-raised-button (click)="DeleteCrew(crew.id)">{{"Delete"| translate}}</button>
-              <button class="actionButton" mat-raised-button (click)="openEditCrewDialog(crew.id)">{{"Edit"| translate}}</button>
-              <button class="actionButton" mat-raised-button [routerLink]="['/detay', crew.id]">{{ "Detail" | translate }}</button>    
+                <button class="actionButton" mat-raised-button (click)="DeleteCrew(crew.id)">
+                  <mat-icon>delete</mat-icon>
+                  {{"Delete"| translate}}</button>
+              <button class="actionButton" mat-raised-button (click)="openEditCrewDialog(crew.id)">
+                <mat-icon>edit</mat-icon>
+                {{"Edit"| translate}}</button>
+              <button class="actionButton" mat-raised-button [routerLink]="['/detay', crew.id]">
+                <mat-icon>visibility</mat-icon>
+                {{ "Detail" | translate }}</button>    
                 </div>
           
             </mat-cell>

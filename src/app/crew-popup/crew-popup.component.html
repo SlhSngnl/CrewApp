@@ -1,5 +1,8 @@
-<div style="max-height: 500px; overflow-y: auto;">
-    <h4 style="margin-left: 50px;" mat-dialog-title>{{ editMode ? ('Mürettebatı Düzenle' | translate) : ('Mürettebat Ekle'| translate) }}</h4>
+
+<app-popup-title [title]="editMode ? 'Edit Crew'  : 'Add Crew' " (closeFunction)="Cancel()"></app-popup-title>
+
+<div style="max-height: 700px; overflow-y: auto;">
+
 
     <div mat-dialog-content style="margin: 50px; ">
       <form [formGroup]="crewForm">
@@ -8,12 +11,12 @@
           <input matInput formControlName="firstName" required>
         </mat-form-field>
     
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" style="margin-right: 10px;">
           <mat-label>{{ 'Last Name' | translate }}</mat-label>
           <input matInput formControlName="lastName" required>
         </mat-form-field>
     
-        <mat-form-field appearance="fill" style="margin-right: 10px;">
+        <mat-form-field appearance="fill" >
             <mat-label>{{ 'Title' | translate }}</mat-label>
           <mat-select formControlName="title" required>
             <mat-option value="Captain">{{ 'Captain' | translate }}</mat-option>
@@ -23,7 +26,7 @@
           </mat-select>
         </mat-form-field>
     
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" style="margin-right: 10px;">
           <mat-label>{{ 'Nationality' | translate }}</mat-label>
           <mat-select formControlName="nationality" required>
             <mat-option value="USA">{{ 'USA' | translate }}</mat-option>
@@ -38,7 +41,7 @@
           <input matInput formControlName="daysOnBoard" type="number" required>
         </mat-form-field>
     
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" >
           <mat-label>{{ 'Daily Rate' | translate }}</mat-label>
           <input matInput formControlName="dailyRate" type="number" required>
         </mat-form-field>
@@ -51,7 +54,7 @@
           </mat-select>
         </mat-form-field>
     
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" >
           <mat-label>{{ 'Total Income' | translate }}</mat-label>
           <input matInput formControlName="totalIncome" type="number" required readonly>
         </mat-form-field>
@@ -62,7 +65,7 @@
         <div *ngFor="let certificate of certificates.controls; let i = index">
           <div [formGroupName]="i">
     
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="fill" style="margin-right: 10px;">
               <mat-label>{{ 'Certificate Type' | translate }}</mat-label>
               <mat-select formControlName="type" required >
                 <mat-option *ngFor="let certificate of certificateList" [value]="certificate.type">{{ certificate.type }}</mat-option>
@@ -70,7 +73,7 @@
             </mat-form-field>
 
     
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="fill" style="margin-right: 10px;">
                 <mat-label>{{ 'Issue Date' | translate }}</mat-label>
                 <input matInput [matDatepicker]="issueDatepicker" formControlName="issueDate" required>
                 <mat-datepicker-toggle matSuffix [for]="issueDatepicker"></mat-datepicker-toggle>

@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatError } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 
@@ -23,7 +25,8 @@ import { MatError } from '@angular/material/form-field';
     CommonModule,
     MatButtonModule,
     FormsModule,
-    MatError
+    MatError,
+    MatIconModule
   ],
   templateUrl: './anasayfa.component.html',
   styleUrl: './anasayfa.component.css'
@@ -66,7 +69,8 @@ openCertificatesDialog(id:number) {
 
 openAddCrewDialog(): void {
   const dialogRef = this.dialog.open(CrewPopupComponent, {
-    width: '700px',
+    width: '850px',
+    maxWidth:'90vw',
     data: { crew: null } 
   });
 
@@ -85,7 +89,8 @@ openEditCrewDialog(id: number): void {
   var index = this.crewList.findIndex(x=>x.id==id);
   var crew = this.crewList[index];
   const dialogRef = this.dialog.open(CrewPopupComponent, {
-    width: '700px',
+    width: '850px',
+    maxWidth:'90vw',
     data: { crew } 
   });
 
