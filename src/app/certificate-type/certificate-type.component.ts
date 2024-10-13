@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule,FormArray} from '@angular/forms';
-import { CertificateService } from '../certificate.service';
+import { CertificateService,Certificate } from '../certificate.service';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { MatTableModule } from '@angular/material/table';
 
 
 @Component({
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     ReactiveFormsModule, 
     TranslateModule,
-    RouterModule
+    RouterModule,
+    MatTableModule
   ],
   templateUrl: './certificate-type.component.html',
   styleUrl: './certificate-type.component.css'
@@ -29,9 +31,11 @@ import { RouterModule } from '@angular/router';
 
 
 export class CertificateTypeComponent {
+  certificateList:Certificate[];
   certificateTypeForm: FormGroup;
 
   constructor(private fb: FormBuilder, private certificateService: CertificateService) {
+    this.certificateList = certificateService.getCertificateList();
     this.certificateTypeForm = this.fb.group({
       type: ['', Validators.required],
       description: ['']
@@ -42,6 +46,7 @@ export class CertificateTypeComponent {
     if (this.certificateTypeForm.valid) {
       const newCertificateType = this.certificateTypeForm.value;
       this.certificateService.addCertificate(newCertificateType);
+      this.certificateList = [...this.certificateService.getCertificateList()];
       this.certificateTypeForm.reset();
     }
   }

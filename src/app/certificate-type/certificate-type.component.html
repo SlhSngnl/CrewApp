@@ -1,22 +1,40 @@
+<div class="certificate-type-container">
+  <button mat-raised-button color="primary" [routerLink]="['']">{{ "Back" | translate }}</button>
+  <h4>{{ 'Add Certificate Type' | translate }}</h4>
 
-<button mat-raised-button color="primary" [routerLink]="['']">{{"Back"|translate}}</button>
-<h4>{{ 'Add Certificate Type' | translate }}</h4>
+  <form [formGroup]="certificateTypeForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>{{ 'Type' | translate }}</mat-label>
+      <input matInput formControlName="type" required>
+      <mat-error *ngIf="certificateTypeForm.get('type')?.hasError('required')">
+        {{ 'Type is required' | translate }}
+      </mat-error>
+    </mat-form-field>
 
-<form [formGroup]="certificateTypeForm" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="fill" style="margin: 10px;">
-    <mat-label>{{ 'Type' | translate }}</mat-label>
-    <input matInput formControlName="type" required>
-    <mat-error *ngIf="certificateTypeForm.get('type')?.hasError('required')">
-      {{ 'Type is required' | translate }}
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>{{ 'Description' | translate }}</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
 
-  <mat-form-field appearance="fill" style="margin: 10px;">
-    <mat-label>{{ 'Description' | translate }}</mat-label>
-    <input matInput formControlName="description">
-  </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!certificateTypeForm.valid">
+      {{ 'Add' | translate }}
+    </button>
+  </form>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="!certificateTypeForm.valid">
-    {{ 'Add' | translate }}
-  </button>
-</form>
+  <h4>{{ 'Added Certificate Types' | translate }}</h4>
+
+  <table mat-table [dataSource]="certificateList" class="mat-elevation-z8">
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> {{ 'Type' | translate }} </th>
+      <td mat-cell *matCellDef="let certificate"> {{ certificate.type }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> {{ 'Description' | translate }} </th>
+      <td mat-cell *matCellDef="let certificate"> {{ certificate.description }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['type', 'description']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['type', 'description'];"></tr>
+  </table>
+</div>

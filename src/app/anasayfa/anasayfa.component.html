@@ -1,9 +1,9 @@
     
-    <button mat-raised-button color="primary" style="margin-right: 5px;" (click)="openAddCrewDialog()">{{"Add Crew" | translate}}</button>
-    <button mat-raised-button color="primary" [routerLink]="['certificate-type']">{{"Add Certificate Type"|translate}}</button>
+  <button mat-raised-button color="primary" style="margin-right: 5px; margin-left: 5px;" (click)="openAddCrewDialog()">{{"Add Crew" | translate}}</button>
+  <button mat-raised-button color="primary" [routerLink]="['certificate-type']">{{"Add Certificate Type"|translate}}</button>
 
 <div class="table-container">
-    <mat-table [dataSource]="crewList" class="mat-elevation-z8" style="width: 100%;">
+  <mat-table [dataSource]="crewList" class="mat-elevation-z8" style="width: 100%;">
 
         <ng-container matColumnDef="firstName">
           <mat-header-cell *matHeaderCellDef> {{"First Name" | translate}}</mat-header-cell>
