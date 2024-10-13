@@ -1,0 +1,11 @@
+<mat-list *ngIf="certificates.length>0 else noCertificates">
+    <mat-list-item style="height: 150px;" *ngFor="let certificate of certificates">
+      <p><strong>{{ 'Type' | translate }}: </strong>{{ certificate.type }}</p>
+      <p><strong>{{ 'Description' | translate }}: </strong>{{ certificate.description }}</p>
+      <p><strong>{{ 'Issue Date' | translate }}:</strong> {{ certificate.issueDate | date }}</p>
+      <p><strong>{{ 'Expire Date' | translate }}:</strong> {{ certificate.expireDate | date }}</p>
+    </mat-list-item>
+  </mat-list>
+  <ng-template #noCertificates>
+    <p>{{ 'No Certificates Available' | translate }}</p>
+  </ng-template>

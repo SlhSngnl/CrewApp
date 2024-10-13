@@ -1,16 +1,6 @@
 <app-popup-title [title]="'Certificates'" (closeFunction)="Cancel()"></app-popup-title>
 
     <mat-dialog-content style="overflow-y: auto;">
-      <mat-list *ngIf="data.certificates.length; else noCertificates">
-        <mat-list-item style="height: 150px;" *ngFor="let certificate of data.certificates">
-          <p>{{ 'Type' | translate }}: {{ certificate.type }}</p>
-          <p>{{ 'Description' | translate }}: {{ certificate.description }}</p>
-          <p>{{ 'Issue Date' | translate }}: {{ certificate.issueDate | date }}</p>
-          <p>{{ 'Expry Date' | translate }}: {{ certificate.expireDate | date }}</p>
-        </mat-list-item>
-      </mat-list>
-      <ng-template #noCertificates>
-        <p>{{ 'No Certificates Available' | translate }}</p>
-      </ng-template>
+      <app-certificate-list [crewId]="data.crewId"></app-certificate-list>
     </mat-dialog-content>
     

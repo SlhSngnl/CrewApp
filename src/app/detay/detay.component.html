@@ -1,5 +1,7 @@
 
-<button mat-raised-button color="primary" [routerLink]="['']">{{"Back"|translate}}</button>
+<div class="detail-container">
+
+  <button mat-raised-button color="primary" [routerLink]="['']">{{"Back"|translate}}</button>
 
 <mat-tab-group>
     <mat-tab label="{{ 'Crew Detail' | translate }}">
@@ -17,15 +19,10 @@
   
     <mat-tab label="{{ 'Certificates' | translate }}">
       <div>
-        <mat-list *ngIf="crew?.certificates">
-          <mat-list-item style="height: 150px;" *ngFor="let certificate of crew?.certificates">
-            <p><strong>{{ 'Type' | translate }}: </strong>{{ certificate.type }}</p>
-            <p><strong>{{ 'Description' | translate }}: </strong>{{ certificate.description }}</p>
-            <p><strong>{{ 'Issue Date' | translate }}:</strong> {{ certificate.issueDate | date }}</p>
-            <p><strong>{{ 'Expire Date' | translate }}:</strong> {{ certificate.expireDate | date }}</p>
-          </mat-list-item>
-        </mat-list>
+        <app-certificate-list [crewId]="crew!.id"></app-certificate-list>
       </div>
     </mat-tab>
   </mat-tab-group>
   
+
+</div>

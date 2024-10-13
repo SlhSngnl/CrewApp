@@ -131,6 +131,12 @@ export class CrewService {
     const index = this.crewList.findIndex(crew => crew.id === id);
     this.crewList.splice(index, 1);
   }
+
+  getCertificatesByCrewId(id:number){
+    const index = this.crewList.findIndex(crew => crew.id === id);
+    return this.crewList[index].certificates;
+  }
+
   discountIncome(discount: number,id:number) {
 
 

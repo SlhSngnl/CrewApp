@@ -1,7 +1,7 @@
 
 <app-popup-title [title]="editMode ? 'Edit Crew'  : 'Add Crew' " (closeFunction)="Cancel()"></app-popup-title>
 
-<div style="max-height: 700px; overflow-y: auto;">
+<div style="max-height: 700px; overflow-y: auto; ">
 
 
     <div mat-dialog-content style="margin: 50px; ">
@@ -99,9 +99,9 @@
       </form>
     </div>
     
-    <div mat-dialog-actions>
-      <button mat-button (click)="Cancel()">{{ 'Cancel' | translate }}</button>
-      <button mat-button color="primary" (click)="Save()" [disabled]="!crewForm.valid">
+    <div mat-dialog-actions class="mat-dialog-actions">
+      <button mat-raised-button style="margin-right: 10px;" (click)="Cancel()">{{ 'Cancel' | translate }}</button>
+      <button mat-raised-button color="primary" (click)="Save()" [disabled]="!crewForm.valid">
         {{ editMode ? ('Update' | translate) : ('Save' | translate) }}
       </button>
     </div>

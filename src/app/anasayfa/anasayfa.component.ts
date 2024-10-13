@@ -58,18 +58,17 @@ discountIncome(discount: number,id:number) {
 }
 
 openCertificatesDialog(id:number) {
-  const crew=this.crewService.getCrewById(id);
   const dialogRef = this.dialog.open(CertificatesPopupComponent, {
     width: '500px',
     height:'500px',
-    data: { certificates: crew?.certificates },
+    data: { crewId: id },
   });
 
 }
 
 openAddCrewDialog(): void {
   const dialogRef = this.dialog.open(CrewPopupComponent, {
-    width: '850px',
+    width: '900px',
     maxWidth:'90vw',
     data: { crew: null } 
   });
@@ -89,7 +88,7 @@ openEditCrewDialog(id: number): void {
   var index = this.crewList.findIndex(x=>x.id==id);
   var crew = this.crewList[index];
   const dialogRef = this.dialog.open(CrewPopupComponent, {
-    width: '850px',
+    width: '900px',
     maxWidth:'90vw',
     data: { crew } 
   });
